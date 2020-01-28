@@ -1,0 +1,26 @@
+{
+  "name": "appkit",
+  "description": "Beyond Pricing front-end build",
+  "repository": "",
+  "author": "Beyond Pricing",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "version": "0.0.1",
+  "homepage": "",
+  "scripts": {
+    "build": "ember build",
+    "lint:hbs": "ember-template-lint .",
+    "lint:js": "eslint .",
+    "start": "ember server",
+    "test": "ember test"
+  },
+  "devDependencies": {
+    "rsvp": "3.2.1"
+  },
+  "engines": {
+    "node": "6.* || 8.* || >= 10.*"
+  },
+  "private": true
+}
