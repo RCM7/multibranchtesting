@@ -1,9 +1,21 @@
+ARG IMAGE=node:13.7.0-alpine3.10
+
+FROM $IMAGE as previous_image
+
+ENV APP_PATH /app
+RUN mkdir -p $APP_PATH && \
+  touch $APP_PATH/package-lock.json
+
 FROM node:alpine3.10
 
-RUN mkdir /app
+ENV APP_PATH /app
+RUN mkdir -p $APP_PATH
 
-WORKDIR /app
+WORKDIR $APP_PATH
 
-ADD package.json /app/
+COPY --from=previous_image $APP_PATH/package-lock.json .
 
-RUN npm install
+ADD package.json $APP_PATH
+
+RUN apk add --no-cache curl chromium && \
+  npm install
