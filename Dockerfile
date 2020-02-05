@@ -18,7 +18,8 @@ COPY --from=previous_image $APP_PATH/package-lock.json .
 ADD package.json $APP_PATH
 
 RUN set -x && \
-  apk add --no-cache curl chromium && \
-  npm install
+  apk add --no-cache curl chromium
+
+RUN set -x && npm install
 
 
